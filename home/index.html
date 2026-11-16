@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#fff9f4"><meta name="color-scheme" content="light">
+<title>SushiPass — Make Your Scroll Worth Something</title>
+<meta name="description" content="Explore bite-size clips, simple tasks and cash reward opportunities with SushiPass.">
+<style>
+:root {
+  --ink:#262124;
+  --ink-soft:#4c3c40;
+  --dark:#251e22;
+  --cream:#fffaf5;
+  --paper:#fff5ed;
+  --white:#fff;
+  --peach:#ffdfc9;
+  --coral:#f8774e;
+  --hot:#f15f43;
+  --orange:#ff9b69;
+  --line:#eddbd0;
+  --muted:#7f6d68;
+  --shadow:0 23px 70px rgba(62,31,23,.13);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;color:var(--ink);background:var(--cream);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+button,a{-webkit-tap-highlight-color:transparent}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid #e67c52;outline-offset:4px}
+button{font:inherit;cursor:pointer}
+.site-logo{display:flex;align-items:center;gap:11px;text-decoration:none;min-width:0}
+.site-logo img{width:44px;height:44px;border-radius:14px;object-fit:cover;box-shadow:0 5px 16px rgba(101,57,34,.12);background:#fff}
+.site-logo .brand-name{font-size:17px;font-weight:900;letter-spacing:-.7px;line-height:1.12}
+.site-logo .brand-caption{display:block;font-size:9px;letter-spacing:1.2px;font-weight:800;color:#a18a7f;margin-top:4px}
+.header-wrap{max-width:1140px;margin:auto;padding:22px 24px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.eyebrow{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:1.2px}
+.little-dot{width:7px;height:7px;border-radius:50%;background:#84d796;box-shadow:0 0 0 4px rgba(132,215,150,.15)}
+.button{min-height:48px;padding:13px 20px;display:inline-flex;align-items:center;justify-content:center;gap:12px;text-decoration:none;border-radius:14px;font-size:13px;font-weight:900;line-height:1.25;transition:transform .2s ease,box-shadow .2s ease,background-color .2s ease;border:1px solid transparent}
+.button:hover{transform:translateY(-2px)}
+.button:active{transform:translateY(1px)}
+.button-coral{background:var(--coral);color:#241b1b;box-shadow:0 10px 24px rgba(247,116,76,.22)}
+.button-coral:hover{background:#ff8d61;box-shadow:0 12px 28px rgba(247,116,76,.28)}
+.button-light{background:#fff6e8;color:#2e2024}
+.button-outline{border-color:#dfc7b9;background:#fffaf6;color:#3a2a2b}
+.arrow{font-size:18px;line-height:1;font-weight:400}
+.footer-note{color:#9d8c85;font-size:10px;text-align:center;line-height:1.8}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+
+
+body.lander{background:radial-gradient(ellipse at 8% 2%,#fff0e3 0,transparent 36%),#fffaf6;overflow-x:hidden}
+body.lander .site-header{background:rgba(255,250,246,.89)}
+.top-tag{display:inline-flex;align-items:center;gap:7px;border:1px solid #efd8c9;background:#fff;border-radius:40px;padding:9px 12px;font-size:10px;font-weight:900;color:#795447;white-space:nowrap}
+.container{width:min(100% - 36px,1100px);margin:0 auto}
+.promo-line{display:flex;align-items:center;justify-content:center;gap:8px;max-width:1100px;margin:0 auto 14px;padding:10px 14px;font-size:11px;text-align:center;font-weight:800;color:#985947;background:#ffe5d6;border:1px solid #fad2bc;border-radius:13px}
+.hero{position:relative;overflow:hidden;border-radius:27px;background:linear-gradient(135deg,#322328 0%,#231d22 63%,#422b29 100%);color:#fff8f0;box-shadow:var(--shadow);padding:38px 37px 28px;isolation:isolate}
+.hero:before{content:"";position:absolute;width:320px;height:320px;right:-105px;top:-185px;border-radius:50%;background:linear-gradient(135deg,#ffb37f,#f46c50);opacity:.94;z-index:-1}
+.hero:after{content:"";position:absolute;width:250px;height:250px;right:80px;top:-207px;border:1px solid rgba(255,240,220,.22);border-radius:50%;z-index:-1}
+.hero-copy{max-width:660px;position:relative;z-index:2}
+.hero-kicker{padding:9px 12px;color:#ffddc6;background:rgba(255,255,255,.1);border:1px solid rgba(255,226,211,.2);border-radius:30px;letter-spacing:.2px;text-transform:none;font-size:11px}
+.hero h1{font-size:clamp(39px,5.8vw,66px);letter-spacing:-2.9px;line-height:1.04;max-width:660px;margin:23px 0 15px;font-weight:950}
+.hero h1 .pop{color:#ff9c74}
+.hero-description{font-size:14px;line-height:1.65;color:#e7d5cd;max-width:470px;margin:0 0 24px}
+.hero-cta-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.hero .button-coral{min-height:52px}
+.hero-mini{color:#beaaa6;font-size:10px;font-weight:750}
+.hero-marks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;max-width:570px;margin-top:32px}
+.hero-mark{border-radius:13px;padding:14px 12px;background:rgba(255,255,255,.085);border:1px solid rgba(255,233,223,.14);text-align:center;min-width:0}
+.hero-mark b{font-size:16px;display:block;letter-spacing:-.3px}
+.hero-mark span{display:block;color:#d8c1bd;font-size:10px;margin-top:3px;font-weight:700}
+.hero-art{position:absolute;width:265px;height:265px;right:36px;top:120px;opacity:.98;pointer-events:none}
+.hero-art .sushi-big{position:absolute;right:20px;top:8px;width:185px;height:185px;border:19px solid #f2e6d9;border-radius:50%;background:radial-gradient(circle at 45% 50%,#f88153 0 22%,#301b20 23% 35%,#f7f0e5 36% 100%);transform:rotate(-13deg);box-shadow:0 24px 45px rgba(0,0,0,.15)}
+.hero-art .sushi-small{position:absolute;width:92px;height:92px;left:0;bottom:14px;border:11px solid #f4e4d3;border-radius:50%;background:radial-gradient(circle,#f78d55 0 30%,#382a29 32% 47%,#f9f0e8 48% 100%);transform:rotate(16deg);box-shadow:0 15px 35px rgba(0,0,0,.15)}
+.hero-art .sprinkle{position:absolute;width:12px;height:32px;border-radius:30px;background:#ff9e71;right:4px;top:-8px;transform:rotate(40deg)}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:10px;margin:29px 1px 13px}
+.section-head h2{margin:0;font-size:20px;letter-spacing:-.6px;line-height:1.15}
+.section-head span{font-size:10px;color:#cd7357;font-weight:850}
+.earn-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.earn-card{position:relative;overflow:hidden;min-height:142px;border-radius:19px;padding:19px 17px 16px;border:1px solid #f0ded4;background:linear-gradient(145deg,#fff,#fff0e6);transition:transform .2s,border-color .2s}
+.earn-card:hover{transform:translateY(-3px);border-color:#e5bba7}
+.earn-card:after{content:"";position:absolute;border-radius:0 0 0 100%;width:67px;height:67px;right:0;top:0;background:#ffe0cf}
+.earn-card:nth-child(2){background:linear-gradient(135deg,#ffeadc,#fff9f2)}
+.earn-card:nth-child(3){background:linear-gradient(135deg,#f6f1ec,#fff4e9)}
+.earn-card:nth-child(4){background:linear-gradient(135deg,#fff2ea,#fff8f4)}
+.earn-icon{position:relative;z-index:1;font-size:26px;line-height:1;display:block;margin-bottom:20px}
+.earn-card strong{display:block;font-size:13px;letter-spacing:-.22px;line-height:1.2}
+.earn-card p{font-size:10px;color:#886e67;margin:6px 0 0;line-height:1.4}
+.reels{margin-top:18px;background:#292124;color:#fff8f0;border-radius:22px;padding:21px;border:1px solid #403235}
+.reels .section-head{margin:0 0 14px}.reels .section-head h2{font-size:18px}.reels .section-head span{color:#b6efaa}
+.reel-layout{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.reel{height:237px;position:relative;isolation:isolate;overflow:hidden;border-radius:17px;border:1px solid rgba(255,255,255,.15);text-align:left;color:white;padding:14px;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.reel:hover{transform:translateY(-3px);box-shadow:0 12px 24px rgba(0,0,0,.2)}
+.reel:nth-child(1){background:linear-gradient(155deg,#fa995e,#9d3d52 65%,#422d63)}
+.reel:nth-child(2){background:linear-gradient(145deg,#ffcca1,#ad665c 50%,#332657)}
+.reel:nth-child(3){background:linear-gradient(155deg,#96aa9f,#536b8f 50%,#2d285e)}
+.reel:before{content:"";position:absolute;width:170px;height:170px;left:-47px;top:-84px;border:37px solid rgba(255,250,244,.12);border-radius:50%;z-index:-1}
+.reel .reel-symbol{position:absolute;top:13px;right:13px;font-size:23px}
+.reel strong{display:block;font-size:12px;position:absolute;bottom:41px;left:14px;right:12px}
+.reel small{position:absolute;bottom:22px;left:14px;font-size:9px;color:#f3dfdd;font-weight:700}
+.play-circle{width:50px;height:50px;display:grid;place-items:center;border-radius:50%;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.22);font-size:21px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);backdrop-filter:blur(4px)}
+.reel-bars{display:flex;gap:3px;position:absolute;bottom:10px;right:12px;align-items:flex-end;height:20px}
+.reel-bars i{display:block;width:3px;border-radius:4px;background:rgba(255,255,255,.8);height:8px}.reel-bars i:nth-child(2){height:14px}.reel-bars i:nth-child(3){height:10px}
+.reward-strip{display:flex;justify-content:space-between;align-items:center;gap:22px;padding:24px 26px;margin-top:20px;background:linear-gradient(110deg,#ffe4cf,#ffb88c);border-radius:22px;box-shadow:0 16px 32px rgba(248,132,81,.14);border:1px solid #f8c8aa}
+.reward-left{display:flex;gap:15px;align-items:center}
+.reward-age{display:grid;place-items:center;min-width:61px;width:61px;height:61px;border-radius:18px;background:#fff6e9;border:1px solid #efc8a9;font-size:22px;font-weight:950;letter-spacing:-1px}
+.reward-left h2{font-size:20px;margin:0 0 6px;letter-spacing:-.6px}.reward-left p{font-size:11px;font-weight:650;color:#835a48;margin:0;line-height:1.5}
+.reward-strip .button{background:#30252a;color:#fff5ec;min-width:157px}
+.disclaimer{text-align:center;color:#9e8176;font-size:10px;line-height:1.6;margin:12px auto 22px;max-width:680px}
+.how{background:#fff;border:1px solid #f0e2d9;border-radius:22px;padding:10px 23px;margin-bottom:26px;box-shadow:0 4px 20px rgba(60,24,11,.03)}
+.step{display:flex;gap:14px;align-items:flex-start;padding:19px 0}
+.step+.step{border-top:1px solid #f0e2d9}
+.step-number{width:37px;height:37px;flex:0 0 37px;background:#ffead9;border-radius:12px;display:grid;place-items:center;color:#c25b37;font-size:16px;font-weight:950}
+.step h3{margin:0 0 5px;font-size:13px;letter-spacing:-.2px}.step p{margin:0;color:#85726d;font-size:11px;line-height:1.6}
+.footer{text-align:center;padding:4px 12px 24px;color:#927d77;font-size:10px;line-height:1.8}
+.footer strong{color:#574340}
+.dialog-backdrop{position:fixed;z-index:20;inset:0;display:none;place-items:center;background:rgba(31,22,24,.6);padding:18px;backdrop-filter:blur(5px)}
+.dialog-backdrop.open{display:grid}
+.preview-modal{position:relative;width:min(100%,410px);padding:30px;border-radius:22px;background:#fff9f4;box-shadow:0 24px 60px #26131855;text-align:center}
+.preview-icon{width:68px;height:68px;display:grid;place-items:center;font-size:32px;border-radius:20px;background:#ffe1d2;margin:auto auto 20px}
+.preview-modal h2{margin:0 0 10px;font-size:23px;letter-spacing:-.8px}
+.preview-modal p{color:#806d66;font-size:13px;line-height:1.65;margin:0 0 20px}
+.preview-modal .button{width:100%}
+.preview-close{border:0;position:absolute;right:13px;top:13px;border-radius:12px;background:#f7e9df;color:#6e5347;width:35px;height:35px;font-size:21px}
+@media(max-width:890px){.hero-art{opacity:.36;right:-60px;top:135px;transform:scale(.88)}.earn-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.earn-card{min-height:134px}}
+@media(max-width:600px){.header-wrap{padding:17px 18px}.site-logo img{height:39px;width:39px;border-radius:12px}.site-logo .brand-name{font-size:15px}.site-logo .brand-caption{font-size:8px;letter-spacing:.9px}.top-tag{font-size:9px;padding:7px 10px}.container{width:min(100% - 30px,450px)}.promo-line{margin-bottom:11px;font-size:10px;padding:9px}.hero{padding:27px 20px 18px;border-radius:24px}.hero:before{width:145px;height:145px;right:-57px;top:-68px}.hero h1{font-size:clamp(37px,10vw,47px);letter-spacing:-1.9px;margin:18px 0 13px}.hero-description{font-size:12px;max-width:300px;margin-bottom:17px}.hero-kicker{font-size:10px;padding:7px 9px}.hero .button-coral{width:100%;padding:14px;min-height:53px;font-size:12px}.hero-mini{display:block;width:100%;text-align:center}.hero-marks{gap:7px;margin-top:20px}.hero-mark{padding:11px 3px;border-radius:10px}.hero-mark b{font-size:14px}.hero-mark span{font-size:9px}.hero-art{opacity:.2;right:-100px;top:55px;transform:scale(.65)}.section-head{margin-top:24px}.section-head h2{font-size:16px}.earn-grid{gap:9px}.earn-card{padding:14px 12px 12px;border-radius:15px;min-height:121px}.earn-icon{font-size:23px;margin-bottom:13px}.earn-card strong{font-size:12px}.earn-card p{font-size:9px}.earn-card:after{width:47px;height:47px}.reels{padding:12px;border-radius:19px}.reels .section-head h2{font-size:15px}.reel-layout{gap:7px}.reel{height:158px;border-radius:13px;padding:9px}.reel .reel-symbol{top:8px;right:8px;font-size:16px}.play-circle{width:33px;height:33px;font-size:14px}.reel strong{font-size:10px;bottom:28px;left:9px}.reel small{font-size:8px;bottom:14px;left:9px}.reel-bars{display:none}.reward-strip{margin-top:13px;padding:17px 15px;border-radius:18px;gap:12px;flex-wrap:wrap}.reward-left{gap:10px}.reward-age{min-width:51px;width:51px;height:51px;border-radius:14px;font-size:19px}.reward-left h2{font-size:17px;margin-bottom:4px}.reward-left p{font-size:10px}.reward-strip .button{width:100%;min-height:45px}.disclaimer{font-size:9px;margin-bottom:16px}.how{padding:4px 13px;border-radius:19px}.step{padding:14px 0;gap:10px}.step-number{width:31px;height:31px;flex-basis:31px;border-radius:10px;font-size:13px}.step h3{font-size:12px}.step p{font-size:10px}}
+</style></head>
+<body class="lander">
+<header class="site-header"><div class="header-wrap"><a class="site-logo" href="index.html" aria-label="SushiPass home"><img src="data:image/webp;base64,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" alt="SushiPass logo"><span><span class="brand-name">SushiPass</span><span class="brand-caption">SCROLL • DISCOVER • REWARDS</span></span></a><span class="top-tag"><span class="little-dot" aria-hidden="true"></span> FRESH DROPS DAILY</span></div></header>
+<main class="container">
+<div class="promo-line"><span aria-hidden="true">🍣</span> Good content. Little moments. Reward opportunities.</div>
+<section class="hero" aria-labelledby="hero-title"><div class="hero-art" aria-hidden="true"><span class="sushi-big"></span><span class="sushi-small"></span><span class="sprinkle"></span></div><div class="hero-copy"><span class="eyebrow hero-kicker">✨ Your scroll, but tastier</span><h1 id="hero-title">Make your scroll <span class="pop">worth something.</span></h1><p class="hero-description">Watch short videos, discover trending content and explore simple tasks that could unlock real cash rewards.</p><div class="hero-cta-row"><a class="button button-coral" href="#feed">Start scrolling <span class="arrow" aria-hidden="true">↗</span></a><span class="hero-mini">Your next scroll starts here</span></div><div class="hero-marks"><div class="hero-mark"><b>Easy</b><span>Simple activities</span></div><div class="hero-mark"><b>21+</b><span>Age required</span></div><div class="hero-mark"><b>Cash</b><span>Reward options</span></div></div></div></section>
+<section aria-labelledby="ways-title"><div class="section-head"><h2 id="ways-title">Ways to earn rewards</h2><span>Small steps, sweet perks ↗</span></div><div class="earn-grid"><article class="earn-card"><span class="earn-icon" aria-hidden="true">📱</span><strong>Scroll & Discover</strong><p>Explore bite-size content</p></article><article class="earn-card"><span class="earn-icon" aria-hidden="true">🔥</span><strong>Trending Clips</strong><p>Watch the latest drops</p></article><article class="earn-card"><span class="earn-icon" aria-hidden="true">🎯</span><strong>Quick Tasks</strong><p>Complete eligible offers</p></article><article class="earn-card"><span class="earn-icon" aria-hidden="true">💸</span><strong>Cash Rewards</strong><p>Collect approved rewards</p></article></div></section>
+<section class="reels" id="feed" aria-labelledby="feed-title"><div class="section-head"><h2 id="feed-title">SushiPass scrolling feed</h2><span><span aria-hidden="true">●</span> Explore</span></div><div class="reel-layout"><button class="reel" type="button" data-name="Daily Drops" data-icon="🍣" aria-label="Preview Daily Drops"><span class="reel-symbol" aria-hidden="true">🍣</span><span class="play-circle" aria-hidden="true">▶</span><strong>Daily Drops</strong><small>Fresh content</small><span class="reel-bars" aria-hidden="true"><i></i><i></i><i></i></span></button><button class="reel" type="button" data-name="Trending Now" data-icon="🔥" aria-label="Preview Trending Now"><span class="reel-symbol" aria-hidden="true">🔥</span><span class="play-circle" aria-hidden="true">▶</span><strong>Trending Now</strong><small>What’s hot</small><span class="reel-bars" aria-hidden="true"><i></i><i></i><i></i></span></button><button class="reel" type="button" data-name="Reward Bites" data-icon="🎯" aria-label="Preview Reward Bites"><span class="reel-symbol" aria-hidden="true">🎯</span><span class="play-circle" aria-hidden="true">▶</span><strong>Reward Bites</strong><small>Quick activities</small><span class="reel-bars" aria-hidden="true"><i></i><i></i><i></i></span></button></div></section>
+<section class="reward-strip" aria-labelledby="reward-title"><div class="reward-left"><div class="reward-age" aria-hidden="true">21+</div><div><h2 id="reward-title">A tastier way to scroll.</h2><p>Discover activities and check which rewards you may qualify for.</p></div></div><a class="button" href="#how-it-works">How it works <span class="arrow" aria-hidden="true">↗</span></a></section>
+<p class="disclaimer">For users aged 21 and older where permitted. Rewards vary by region and offer, may require verification, and are not guaranteed. This is a landing-page design demo, not a live rewards platform.</p>
+<section class="how" id="how-it-works" aria-label="How it works"><div class="step"><span class="step-number">1</span><div><h3>Discover SushiPass</h3><p>Explore the scrolling feed and see which activities interest you.</p></div></div><div class="step"><span class="step-number">2</span><div><h3>Choose eligible tasks</h3><p>Follow the instructions and conditions of any available reward offer.</p></div></div><div class="step"><span class="step-number">3</span><div><h3>Unlock approved rewards</h3><p>Eligible rewards are awarded only after the offer requirements are met.</p></div></div></section>
+</main>
+<footer class="footer"><strong>SushiPass</strong> · Privacy · Terms · Disclaimer<br>© 2026 SushiPass. Demo interface, not affiliated with a reward provider.</footer>
+<div class="dialog-backdrop" id="preview-dialog" role="presentation"><section class="preview-modal" role="dialog" aria-modal="true" aria-labelledby="preview-title" aria-describedby="preview-desc"><button class="preview-close" id="preview-close" type="button" aria-label="Close preview">×</button><div class="preview-icon" id="preview-icon" aria-hidden="true">🍣</div><h2 id="preview-title">Daily Drops</h2><p id="preview-desc">This is a visual demo of the SushiPass feed. Connect real video content or reward offers before launching.</p><button class="button button-coral" type="button" id="preview-ok">Got it</button></section></div>
+<script>
+(() => {
+const modal=document.getElementById('preview-dialog');
+const title=document.getElementById('preview-title');
+const icon=document.getElementById('preview-icon');
+const closer=document.getElementById('preview-close');
+let lastFocused=null;
+function closePreview(){modal.classList.remove('open');document.body.style.overflow='';if(lastFocused)lastFocused.focus();}
+document.querySelectorAll('.reel').forEach((button)=>button.addEventListener('click',()=>{lastFocused=button;title.textContent=button.dataset.name;icon.textContent=button.dataset.icon;modal.classList.add('open');document.body.style.overflow='hidden';closer.focus();}));
+closer.addEventListener('click',closePreview);
+document.getElementById('preview-ok').addEventListener('click',closePreview);
+modal.addEventListener('click',(event)=>{if(event.target===modal)closePreview();});
+document.addEventListener('keydown',(event)=>{if(event.key==='Escape'&&modal.classList.contains('open'))closePreview();});
+})();
+</script>
+</body></html>
