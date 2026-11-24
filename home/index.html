@@ -1,779 +1,733 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="theme-color" content="#fff9f4" />
-  <meta name="description" content="Win money by scrolling with SushiPass." />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#100f14">
+
+  <meta
+    name="description"
+    content="Win money by scrolling. Discover available tasks and rewards with SushiPass."
+  >
+
   <title>SushiPass — Win Money by Scrolling</title>
 
   <style>
-    :root{
-      --ink:#262124;
-      --ink-soft:#625458;
-      --dark:#251e22;
-      --cream:#fffaf5;
-      --paper:#fff5ed;
-      --white:#fff;
-      --peach:#ffdfc9;
-      --coral:#f8774e;
-      --hot:#f15f43;
-      --orange:#ff9b69;
-      --line:#eddbd0;
-      --muted:#887772;
-      --shadow:0 23px 70px rgba(62,31,23,.13);
-      --shadow-2:0 15px 38px rgba(241,95,67,.16);
+    :root {
+      --bg: #100f14;
+      --card: #211b22;
+      --card2: #2b212a;
+      --text: #fff6f1;
+      --muted: #c0adb5;
+      --line: #48343e;
+      --coral: #e88770;
+      --gold: #deb37b;
+      --green: #92c6a2;
     }
 
-    *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
+    * {
+      box-sizing: border-box;
+    }
 
-    body{
-      font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
       background:
-        radial-gradient(circle at 8% 2%, #fff0e3 0, transparent 32%),
-        radial-gradient(circle at 92% 0%, #ffe7d5 0, transparent 24%),
-        #fffaf6;
-      color:var(--ink);
-      -webkit-font-smoothing:antialiased;
-      overflow-x:hidden;
+        radial-gradient(
+          circle at 45% -5%,
+          #44272e 0,
+          transparent 25%
+        ),
+        linear-gradient(
+          180deg,
+          #17131a,
+          #100f14 60%,
+          #100f14
+        );
+      color: var(--text);
+      font-family: system-ui, -apple-system,
+        "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased;
     }
 
-    a{text-decoration:none;color:inherit}
-    button{font:inherit;cursor:pointer;border:none;background:none}
-    img{max-width:100%;display:block}
-
-    .site-header{
-      position:sticky;
-      top:0;
-      z-index:20;
-      background:rgba(255,250,246,.88);
-      backdrop-filter:blur(10px);
-      border-bottom:1px solid rgba(237,219,208,.75);
+    a {
+      color: inherit;
+      text-decoration: none;
+      -webkit-tap-highlight-color: transparent;
     }
 
-    .header-wrap{
-      max-width:430px;
-      margin:0 auto;
-      padding:16px 14px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
+    a:focus-visible {
+      outline: 3px solid var(--gold);
+      outline-offset: 4px;
     }
 
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      min-width:0;
+    .wrap {
+      max-width: 430px;
+      margin: auto;
+      padding: 14px 13px 114px;
     }
 
-    .logo{
-      width:46px;
-      height:46px;
-      border-radius:14px;
-      display:grid;
-      place-items:center;
-      background:linear-gradient(180deg,#fff0e4,#ffd8c3);
-      border:1px solid #f0d6c7;
-      box-shadow:0 8px 20px rgba(241,95,67,.12);
-      font-size:22px;
-      flex:0 0 auto;
+    .top {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      margin: 0 0 13px;
     }
 
-    .brand-name{
-      font-size:17px;
-      font-weight:900;
-      letter-spacing:-.04em;
-      line-height:1.1;
+    .logo {
+      display: grid;
+      place-items: center;
+      width: 49px;
+      height: 49px;
+      border-radius: 15px;
+      background: #3b292e;
+      border: 1px solid #60434c;
+      font-size: 23px;
     }
 
-    .brand-sub{
-      display:block;
-      margin-top:3px;
-      font-size:10px;
-      font-weight:900;
-      letter-spacing:.09em;
-      text-transform:uppercase;
-      color:#a28b80;
+    .brand strong {
+      display: block;
+      font-size: 17px;
+      letter-spacing: -.04em;
     }
 
-    .top-pill{
-      flex:0 0 auto;
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:8px 11px;
-      border-radius:999px;
-      background:#fff;
-      border:1px solid #efdcd0;
-      font-size:10px;
-      font-weight:900;
-      color:#9a674f;
-      text-transform:uppercase;
-      letter-spacing:.07em;
+    .brand span {
+      display: block;
+      font-size: 10px;
+      color: var(--muted);
+      font-weight: 700;
+      margin-top: 3px;
     }
 
-    .dot{
-      width:7px;
-      height:7px;
-      border-radius:50%;
-      background:#86d998;
-      box-shadow:0 0 0 4px rgba(134,217,152,.16);
+    .mini {
+      margin-left: auto;
+      font-size: 10px;
+      font-weight: 900;
+      color: var(--gold);
+      border: 1px solid #75523f;
+      background: #3c2928;
+      padding: 7px 9px;
+      border-radius: 30px;
     }
 
-    .container{
-      width:100%;
-      max-width:430px;
-      margin:0 auto;
-      padding:14px 14px 120px;
+    .card {
+      background: linear-gradient(
+        160deg,
+        #292029,
+        #1d1920
+      );
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      box-shadow: 0 18px 40px #0004;
+      margin-bottom: 12px;
+      overflow: hidden;
     }
 
-    .promo-line{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-      text-align:center;
-      font-size:12px;
-      font-weight:800;
-      color:#8f6f63;
-      background:#fff4ec;
-      border:1px solid #f0ddd0;
-      border-radius:18px;
-      padding:10px 12px;
-      margin-bottom:12px;
+    .hero {
+      padding: 20px 17px 16px;
+      position: relative;
     }
 
-    .cascade{
-      display:grid;
-      gap:12px;
+    .hero:after {
+      content: '💸';
+      position: absolute;
+      right: 16px;
+      top: 18px;
+      font-size: 32px;
+      transform: rotate(12deg);
     }
 
-    .card{
-      background:rgba(255,255,255,.88);
-      border:1px solid var(--line);
-      border-radius:28px;
-      box-shadow:var(--shadow);
-      overflow:hidden;
+    .badge {
+      display: inline-block;
+      padding: 8px 11px;
+      border-radius: 20px;
+      background: #3c2c2c;
+      border: 1px solid #624749;
+      color: #f5c4a8;
+      font-weight: 850;
+      font-size: 11px;
+      margin-bottom: 13px;
+      max-width: 82%;
     }
 
-    .hero{
-      position:relative;
-      padding:20px 18px 18px;
-      background:
-        radial-gradient(circle at 100% 0%, rgba(255,155,105,.18), transparent 30%),
-        linear-gradient(180deg,#fff7f0 0%,#fffdfb 100%);
+    h1 {
+      font-size: clamp(33px, 9vw, 42px);
+      letter-spacing: -.065em;
+      line-height: 1.02;
+      margin: 0 0 12px;
+      max-width: 320px;
     }
 
-    .hero::after{
-      content:"💸";
-      position:absolute;
-      right:16px;
-      top:16px;
-      font-size:34px;
-      transform:rotate(12deg);
-      opacity:.95;
+    h1 span {
+      color: var(--coral);
     }
 
-    .eyebrow{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      font-size:11px;
-      font-weight:900;
-      color:#9a674f;
-      background:#fff1e5;
-      border:1px solid #efd7c7;
-      border-radius:999px;
-      padding:8px 11px;
-      text-transform:uppercase;
-      letter-spacing:.07em;
-      margin-bottom:14px;
+    .hero p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.52;
+      margin: 0 0 13px;
+      max-width: 355px;
     }
 
-    .hero h1{
-      font-size:39px;
-      line-height:.96;
-      letter-spacing:-.07em;
-      margin-bottom:12px;
-      max-width:300px;
+    .money {
+      padding: 13px;
+      border-radius: 17px;
+      background: #302429;
+      border: 1px solid #634850;
+      margin-bottom: 13px;
     }
 
-    .hero h1 .accent{
-      color:var(--hot);
+    .money strong {
+      display: block;
+      font-size: 14px;
+      line-height: 1.35;
+      color: #ffd8bd;
+      margin-bottom: 5px;
     }
 
-    .hero p{
-      font-size:15px;
-      line-height:1.55;
-      color:var(--ink-soft);
-      max-width:330px;
-      margin-bottom:16px;
+    .money span {
+      font-size: 12px;
+      line-height: 1.45;
+      color: var(--muted);
     }
 
-    .hero-cta{
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-      margin-bottom:14px;
+    .quick {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
     }
 
-    .button{
-      min-height:54px;
-      padding:14px 16px;
-      border-radius:16px;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      font-size:15px;
-      font-weight:900;
-      transition:transform .18s ease, box-shadow .18s ease;
+    .quick div {
+      text-align: center;
+      background: #342830;
+      border: 1px solid #4b3641;
+      border-radius: 15px;
+      padding: 11px 5px;
     }
 
-    .button:hover{transform:translateY(-2px)}
-    .button:active{transform:translateY(1px)}
-
-    .button-coral{
-      background:linear-gradient(180deg,var(--coral),var(--hot));
-      color:#fff;
-      box-shadow:var(--shadow-2);
+    .quick strong {
+      display: block;
+      font-size: 16px;
     }
 
-    .button-light{
-      background:#fff;
-      color:#3a2a2b;
-      border:1px solid #eddcd1;
+    .quick span {
+      display: block;
+      font-size: 10px;
+      color: var(--muted);
+      margin-top: 3px;
     }
 
-    .hero-marks{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:9px;
+    .heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin: 15px 2px 9px;
+      font-size: 14px;
     }
 
-    .hero-mark{
-      background:#fff;
-      border:1px solid #efded2;
-      border-radius:18px;
-      padding:12px 10px;
-      text-align:center;
+    .heading span {
+      font-size: 11px;
+      color: var(--gold);
+      font-weight: 800;
     }
 
-    .hero-mark b{
-      display:block;
-      font-size:14px;
-      margin-bottom:4px;
-      letter-spacing:-.03em;
+    .tasks {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 9px;
+      margin-bottom: 12px;
     }
 
-    .hero-mark span{
-      display:block;
-      font-size:11px;
-      color:#8e7b74;
-      line-height:1.3;
+    .task {
+      background: #251d25;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 14px 12px;
+      min-height: 103px;
     }
 
-    .section{
-      padding:16px;
+    .task .emoji {
+      font-size: 23px;
+      display: block;
+      margin-bottom: 8px;
     }
 
-    .section-head{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      margin-bottom:12px;
+    .task strong {
+      font-size: 13px;
+      display: block;
+      line-height: 1.2;
     }
 
-    .section-head h2{
-      font-size:20px;
-      letter-spacing:-.05em;
-      line-height:1.05;
+    .task span {
+      display: block;
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 5px;
+      line-height: 1.3;
     }
 
-    .section-head span{
-      font-size:11px;
-      font-weight:900;
-      color:#a28377;
-      text-transform:uppercase;
-      letter-spacing:.06em;
-      text-align:right;
+    .feed-card {
+      padding: 13px;
     }
 
-    .stack{
-      display:grid;
-      gap:10px;
+    .feed-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 11px;
+      font-size: 14px;
     }
 
-    .feature{
-      display:flex;
-      align-items:flex-start;
-      gap:12px;
-      background:#fff8f3;
-      border:1px solid #efddd0;
-      border-radius:22px;
-      padding:14px;
+    .feed-head span {
+      font-size: 11px;
+      color: var(--green);
+      font-weight: 850;
     }
 
-    .feature-icon{
-      width:44px;
-      height:44px;
-      border-radius:14px;
-      display:grid;
-      place-items:center;
-      background:linear-gradient(180deg,#fff0e4,#ffe0cc);
-      border:1px solid #efd6c6;
-      font-size:20px;
-      flex:0 0 auto;
+    .feed {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
     }
 
-    .feature strong{
-      display:block;
-      font-size:15px;
-      line-height:1.2;
-      margin-bottom:4px;
+    .clip {
+      height: 135px;
+      border-radius: 15px;
+      border: 1px solid #5a414c;
+      background: linear-gradient(
+        155deg,
+        #77505e,
+        #352231
+      );
+      position: relative;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
     }
 
-    .feature p{
-      font-size:13px;
-      line-height:1.45;
-      color:#7e6b66;
+    .clip:nth-child(2) {
+      background: linear-gradient(
+        150deg,
+        #986952,
+        #45303b
+      );
     }
 
-    .steps{
-      display:grid;
-      gap:10px;
+    .clip:nth-child(3) {
+      background: linear-gradient(
+        150deg,
+        #526f67,
+        #34314d
+      );
     }
 
-    .step{
-      display:flex;
-      align-items:flex-start;
-      gap:12px;
-      background:#fff;
-      border:1px solid #efdcd0;
-      border-radius:22px;
-      padding:15px 14px;
+    .play {
+      width: 38px;
+      height: 38px;
+      border: 1px solid #ffffff55;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: #ffffff27;
+      font-size: 15px;
     }
 
-    .step-number{
-      width:36px;
-      height:36px;
-      flex:0 0 36px;
-      border-radius:12px;
-      display:grid;
-      place-items:center;
-      background:linear-gradient(180deg,var(--coral),var(--hot));
-      color:#fff;
-      font-weight:900;
-      font-size:15px;
-      box-shadow:0 8px 18px rgba(241,95,67,.18);
+    .clip em {
+      position: absolute;
+      top: 9px;
+      right: 9px;
+      font-size: 18px;
+      font-style: normal;
     }
 
-    .step h3{
-      font-size:15px;
-      line-height:1.2;
-      margin-bottom:4px;
+    .steps {
+      padding: 15px;
     }
 
-    .step p{
-      font-size:13px;
-      line-height:1.45;
-      color:#7d6c68;
+    .steps h2 {
+      font-size: 19px;
+      letter-spacing: -.04em;
+      margin: 0 0 7px;
     }
 
-    .reward-strip{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      background:linear-gradient(180deg,#fff2e8,#fffaf6);
-      border:1px solid #efd8ca;
-      border-radius:24px;
-      padding:16px;
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 11px;
+      padding: 11px 0;
     }
 
-    .reward-left{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      min-width:0;
+    .step + .step {
+      border-top: 1px solid var(--line);
     }
 
-    .reward-badge{
-      width:56px;
-      height:56px;
-      border-radius:18px;
-      display:grid;
-      place-items:center;
-      background:linear-gradient(180deg,#fff0e4,#ffd7c1);
-      border:1px solid #f0d4c3;
-      font-size:24px;
-      flex:0 0 auto;
+    .num {
+      display: grid;
+      place-items: center;
+      flex: 0 0 33px;
+      height: 33px;
+      border-radius: 10px;
+      background: #423039;
+      color: var(--gold);
+      font-weight: 900;
     }
 
-    .reward-left h3{
-      font-size:18px;
-      letter-spacing:-.04em;
-      line-height:1.06;
-      margin-bottom:4px;
+    .step h3 {
+      margin: 0 0 4px;
+      font-size: 13px;
     }
 
-    .reward-left p{
-      font-size:12px;
-      color:#85736d;
-      line-height:1.4;
+    .step p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
     }
 
-    .disclaimer{
-      font-size:11px;
-      line-height:1.55;
-      color:#94837d;
-      text-align:center;
-      padding:0 6px;
+    .fine {
+      font-size: 11px;
+      line-height: 1.5;
+      color: #b09da5;
+      text-align: center;
+      margin: 11px 4px;
     }
 
-    .sticky{
-      position:fixed;
-      left:50%;
-      bottom:max(12px, env(safe-area-inset-bottom));
-      transform:translateX(-50%);
-      width:min(430px, calc(100% - 24px));
-      z-index:30;
-      background:rgba(255,250,246,.92);
-      backdrop-filter:blur(10px);
-      border:1px solid #efdcd0;
-      border-radius:22px;
-      padding:10px;
-      box-shadow:0 18px 45px rgba(62,31,23,.12);
+    footer {
+      text-align: center;
+      color: #978892;
+      font-size: 10px;
+      line-height: 1.6;
+      margin-top: 15px;
     }
 
-    .sticky .button{
-      width:100%;
+    .sticky {
+      position: fixed;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: max(
+        10px,
+        env(safe-area-inset-bottom)
+      );
+      width: min(
+        430px,
+        calc(100% - 22px)
+      );
+      z-index: 20;
+      padding: 7px;
+      background: #171319e8;
+      border: 1px solid #4b353d;
+      border-radius: 23px;
+      box-shadow: 0 15px 40px #0008;
+      backdrop-filter: blur(12px);
     }
 
-    .footer{
-      text-align:center;
-      color:#9a8983;
-      font-size:11px;
-      line-height:1.7;
-      padding-top:6px;
+    .main-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 11px;
+      min-height: 67px;
+      padding: 12px 13px;
+      border-radius: 17px;
+      background: var(--coral);
+      color: #26171b;
     }
 
-    .modal-overlay{
-      position:fixed;
-      inset:0;
-      z-index:100;
-      display:none;
-      align-items:center;
-      justify-content:center;
-      padding:20px;
-      background:rgba(29,21,19,.56);
-      backdrop-filter:blur(7px);
+    .main-btn .age {
+      border: 1px solid #26171b33;
+      border-radius: 12px;
+      padding: 9px 7px;
+      font-size: 15px;
+      font-weight: 950;
     }
 
-    .modal-overlay.active{display:flex}
-
-    .modal{
-      width:100%;
-      max-width:390px;
-      background:#fffaf6;
-      border:1px solid #efdcd0;
-      border-radius:28px;
-      box-shadow:0 25px 80px rgba(40,24,20,.22);
-      padding:22px 18px 18px;
-      position:relative;
-      text-align:center;
+    .btn-text strong {
+      font-size: 18px;
+      display: block;
+      line-height: 1.1;
     }
 
-    .close-modal{
-      position:absolute;
-      top:12px;
-      right:12px;
-      width:36px;
-      height:36px;
-      border-radius:50%;
-      background:#fff;
-      border:1px solid #eddccf;
-      font-size:24px;
-      line-height:1;
-      color:#7f6d67;
+    .btn-text small {
+      display: block;
+      font-size: 11px;
+      margin-top: 5px;
+      line-height: 1.2;
     }
 
-    .modal-icon{
-      width:72px;
-      height:72px;
-      margin:0 auto 14px;
-      border-radius:22px;
-      display:grid;
-      place-items:center;
-      background:linear-gradient(180deg,#fff0e4,#ffd7c1);
-      border:1px solid #efd6c6;
-      font-size:34px;
-    }
+    @media (max-width: 350px) {
+      .mini {
+        display: none;
+      }
 
-    .modal h2{
-      font-size:28px;
-      line-height:1.05;
-      letter-spacing:-.05em;
-      margin-bottom:10px;
-    }
+      .hero {
+        padding: 18px 14px;
+      }
 
-    .modal p{
-      font-size:14px;
-      line-height:1.55;
-      color:#6f6160;
-      margin-bottom:18px;
-    }
+      .quick span {
+        font-size: 9px;
+      }
 
-    .modal-cta{
-      width:100%;
-    }
-
-    @media (max-width:370px){
-      .hero h1{font-size:33px}
-      .hero-marks{grid-template-columns:1fr}
-      .reward-strip{flex-direction:column;align-items:stretch}
-      .reward-left{align-items:flex-start}
+      .main-btn .age {
+        font-size: 13px;
+      }
     }
   </style>
 </head>
+
 <body>
 
-  <header class="site-header">
-    <div class="header-wrap">
+  <main class="wrap">
+
+    <header class="top">
+      <div class="logo" aria-hidden="true">🍣</div>
+
       <div class="brand">
-        <div class="logo">🍣</div>
-        <div>
-          <div class="brand-name">SushiPass</div>
-          <span class="brand-sub">scroll • discover • rewards</span>
-        </div>
+        <strong>SushiPass</strong>
+        <span>Win money by scrolling</span>
       </div>
 
-      <div class="top-pill">
-        <span class="dot"></span>
-        fresh drops
+      <div class="mini">Explore offers</div>
+    </header>
+
+    <section class="card hero">
+
+      <div class="badge">
+        💸 Win money by scrolling
       </div>
-    </div>
-  </header>
 
-  <main class="container">
-    <div class="promo-line">
-      🍣 scroll. discover. explore reward opportunities.
-    </div>
+      <h1>
+        Win money<br>
+        <span>by scrolling.</span>
+      </h1>
 
-    <div class="cascade">
-
-      <section class="card hero">
-        <div class="eyebrow">✨ your scroll, but tastier</div>
-
-        <h1>
-          win money by
-          <span class="accent">scrolling</span>
-        </h1>
-
-        <p>
-          discover short clips, simple activities and reward opportunities
-          with sushi pass.
-        </p>
-
-        <div class="hero-cta">
-          <a class="button button-coral" href="#start">
-            start now ↗
-          </a>
-          <a class="button button-light" href="#how-it-works">
-            see how it works
-          </a>
-        </div>
-
-        <div class="hero-marks">
-          <div class="hero-mark">
-            <b>easy</b>
-            <span>simple activities</span>
-          </div>
-          <div class="hero-mark">
-            <b>quick</b>
-            <span>short mobile flow</span>
-          </div>
-          <div class="hero-mark">
-            <b>cash</b>
-            <span>reward options</span>
-          </div>
-        </div>
-      </section>
-
-      <section class="card section">
-        <div class="section-head">
-          <h2>ways to unlock rewards</h2>
-          <span>small steps<br />sweet perks</span>
-        </div>
-
-        <div class="stack">
-          <article class="feature">
-            <div class="feature-icon">📱</div>
-            <div>
-              <strong>scroll & discover</strong>
-              <p>explore short-form content and browse available opportunities.</p>
-            </div>
-          </article>
-
-          <article class="feature">
-            <div class="feature-icon">🔥</div>
-            <div>
-              <strong>trending clips</strong>
-              <p>watch fresh content and discover what’s popular right now.</p>
-            </div>
-          </article>
-
-          <article class="feature">
-            <div class="feature-icon">🎯</div>
-            <div>
-              <strong>simple tasks</strong>
-              <p>complete eligible activities and follow the offer instructions.</p>
-            </div>
-          </article>
-
-          <article class="feature">
-            <div class="feature-icon">💸</div>
-            <div>
-              <strong>cash rewards</strong>
-              <p>unlock approved rewards after completing the required steps.</p>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="card section" id="how-it-works">
-        <div class="section-head">
-          <h2>how it works</h2>
-          <span>3 easy steps</span>
-        </div>
-
-        <div class="steps">
-          <div class="step">
-            <div class="step-number">1</div>
-            <div>
-              <h3>open sushi pass</h3>
-              <p>discover the feed and see what reward opportunities are available.</p>
-            </div>
-          </div>
-
-          <div class="step">
-            <div class="step-number">2</div>
-            <div>
-              <h3>pick an eligible activity</h3>
-              <p>choose an available task and follow the instructions carefully.</p>
-            </div>
-          </div>
-
-          <div class="step">
-            <div class="step-number">3</div>
-            <div>
-              <h3>unlock approved rewards</h3>
-              <p>once the requirements are met, eligible rewards can be credited.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="card section" id="start">
-        <div class="reward-strip">
-          <div class="reward-left">
-            <div class="reward-badge">💰</div>
-            <div>
-              <h3>a tastier way to scroll</h3>
-              <p>discover available activities and see which rewards you may qualify for.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <p class="disclaimer">
-        rewards vary by region and offer, may require eligibility checks, and are not guaranteed.
-        complete all instructions carefully to qualify where applicable.
+      <p>
+        Scroll through short videos,
+        discover trending content and
+        explore money rewards from
+        simple online tasks.
       </p>
 
-      <div class="footer">
-        <strong>SushiPass</strong> · Privacy · Terms · Disclaimer<br />
-        © 2026 SushiPass
+      <div class="money">
+        <strong>
+          Start scrolling and explore money
+          rewards directly from your phone.
+        </strong>
+
+        <span>
+          Scroll, complete available tasks
+          and unlock eligible cash rewards
+          when offer requirements are met.
+        </span>
       </div>
+
+      <div class="quick">
+
+        <div>
+          <strong>Offers</strong>
+          <span>Available tasks</span>
+        </div>
+
+        <div>
+          <strong>18+</strong>
+          <span>Age required*</span>
+        </div>
+
+        <div>
+          <strong>Cash</strong>
+          <span>Money rewards</span>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="heading">
+      <strong>Ways to win money</strong>
+      <span>Start scrolling</span>
     </div>
+
+    <section
+      class="tasks"
+      aria-label="Ways to win money"
+    >
+
+      <div class="task">
+        <span class="emoji">📱</span>
+        <strong>Win by Scrolling</strong>
+        <span>Scroll short videos</span>
+      </div>
+
+      <div class="task">
+        <span class="emoji">🔥</span>
+        <strong>Short Video Feed</strong>
+        <span>Watch trending clips</span>
+      </div>
+
+      <div class="task">
+        <span class="emoji">💸</span>
+        <strong>Cash Tasks</strong>
+        <span>Complete simple offers</span>
+      </div>
+
+      <div class="task">
+        <span class="emoji">🤑</span>
+        <strong>Money Rewards</strong>
+        <span>Unlock eligible cash</span>
+      </div>
+
+    </section>
+
+    <section
+      class="card feed-card"
+      aria-label="Scrolling feed illustration"
+    >
+
+      <div class="feed-head">
+        <strong>Money Scrolling Feed</strong>
+        <span>● Explore</span>
+      </div>
+
+      <div class="feed" aria-hidden="true">
+
+        <div class="clip">
+          <em>💸</em>
+          <span class="play">▶</span>
+        </div>
+
+        <div class="clip">
+          <em>🤑</em>
+          <span class="play">▶</span>
+        </div>
+
+        <div class="clip">
+          <em>💰</em>
+          <span class="play">▶</span>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="card steps">
+
+      <h2>How it works</h2>
+
+      <div class="step">
+        <span class="num">1</span>
+
+        <div>
+          <h3>Open SushiPass</h3>
+          <p>
+            Tap the button and open the
+            available offer on your smartphone.
+          </p>
+        </div>
+      </div>
+
+      <div class="step">
+        <span class="num">2</span>
+
+        <div>
+          <h3>Create your free account</h3>
+          <p>
+            Sign up if eligible and
+            discover available tasks.
+          </p>
+        </div>
+      </div>
+
+      <div class="step">
+        <span class="num">3</span>
+
+        <div>
+          <h3>Scroll &amp; win money</h3>
+          <p>
+            Watch short video clips,
+            complete required tasks and
+            qualify for available cash rewards.
+          </p>
+        </div>
+      </div>
+
+    </section>
+
+    <p class="fine">
+      *Check the offer's actual minimum age
+      before publishing. Rewards depend on
+      location, eligibility and successfully
+      completed tasks. Scrolling alone does
+      not guarantee payment.
+    </p>
+
+    <footer>
+      © 2026 SushiPass · Promotional page
+    </footer>
+
   </main>
 
   <div class="sticky">
-    <button class="button button-coral" id="openPopup" type="button">
-      continue to sushi pass →
-    </button>
-  </div>
 
-  <div class="modal-overlay" id="popup" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
-    <div class="modal">
-      <button class="close-modal" id="closePopup" type="button" aria-label="close">
-        ×
-      </button>
+    <a
+      class="main-btn"
+      id="mainCta"
+      href="YOUR_AFFILIATE_LINK_HERE"
+      target="_self"
+    >
 
-      <div class="modal-icon">🍣</div>
+      <span class="age">18+</span>
 
-      <h2 id="popupTitle">before you continue</h2>
+      <span class="btn-text">
+        <strong>Win money</strong>
+        <small>
+          Start scrolling &amp;
+          unlock cash rewards
+        </small>
+      </span>
 
-      <p>
-        discover available reward opportunities and complete the required steps to unlock approved rewards.
-      </p>
+    </a>
 
-      <a
-        class="button button-coral modal-cta"
-        id="affiliateLink"
-        href="YOUR_AFFILIATE_LINK_HERE"
-        target="_self"
-        rel="noopener noreferrer"
-      >
-        continue now →
-      </a>
-    </div>
   </div>
 
   <script>
-    const openPopup = document.getElementById("openPopup");
-    const closePopup = document.getElementById("closePopup");
-    const popup = document.getElementById("popup");
-    const affiliateLink = document.getElementById("affiliateLink");
+    const cta = document.getElementById('mainCta');
 
-    function showPopup() {
-      popup.classList.add("active");
-      document.body.style.overflow = "hidden";
-    }
+    const destination = cta.getAttribute('href');
 
-    function hidePopup() {
-      popup.classList.remove("active");
-      document.body.style.overflow = "";
-    }
+    if (destination === 'YOUR_AFFILIATE_LINK_HERE') {
 
-    openPopup.addEventListener("click", showPopup);
-    closePopup.addEventListener("click", hidePopup);
+      cta.addEventListener('click', function(event) {
+        event.preventDefault();
 
-    popup.addEventListener("click", function (event) {
-      if (event.target === popup) hidePopup();
-    });
-
-    document.addEventListener("keydown", function (event) {
-      if (event.key === "Escape" && popup.classList.contains("active")) {
-        hidePopup();
-      }
-    });
-
-    const query = new URLSearchParams(window.location.search);
-
-    if (query.toString()) {
-      const url = new URL(affiliateLink.href, window.location.origin);
-
-      query.forEach(function(value, key) {
-        url.searchParams.append(key, value);
+        alert(
+          'Add your affiliate link in home/index.html before publishing.'
+        );
       });
 
-      affiliateLink.href = url.toString();
+    } else {
+
+      const url = new URL(
+        destination,
+        window.location.origin
+      );
+
+      const incoming = new URLSearchParams(
+        window.location.search
+      );
+
+      incoming.forEach(function(value, key) {
+        if (!url.searchParams.has(key)) {
+          url.searchParams.append(key, value);
+        }
+      });
+
+      cta.href = url.toString();
     }
   </script>
+
 </body>
 </html>
