@@ -1,208 +1,237 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="theme-color" content="#fff9f4" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#100f14">
   <title>SushiPass — Choose your device</title>
+
   <style>
-    :root{
-      --ink:#262124;
-      --ink-soft:#6e5d59;
-      --cream:#fffaf5;
-      --paper:#fff4ea;
-      --white:#ffffff;
-      --coral:#f8774e;
-      --hot:#f15f43;
-      --orange:#ff9b69;
-      --line:#ecd9cd;
-      --shadow:0 24px 70px rgba(80,38,20,.12);
+    :root {
+      --bg: #100f14;
+      --panel: #211b22;
+      --panel2: #2a2027;
+      --text: #fff6f1;
+      --muted: #bdaeb4;
+      --line: #44323b;
+      --coral: #e88770;
+      --gold: #deb37b;
     }
 
-    *{box-sizing:border-box;margin:0;padding:0}
+    * {
+      box-sizing: border-box;
+    }
 
-    body{
-      min-height:100vh;
-      font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    body {
+      margin: 0;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      font-family: system-ui, -apple-system,
+        "Segoe UI", sans-serif;
+      color: var(--text);
       background:
-        radial-gradient(circle at 15% 10%, #ffe8d8 0, transparent 30%),
-        radial-gradient(circle at 85% 0%, #ffd9c1 0, transparent 26%),
-        linear-gradient(180deg,#fffaf5 0%,#fff6ef 100%);
-      color:var(--ink);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:20px;
-      -webkit-font-smoothing:antialiased;
+        radial-gradient(
+          circle at 48% 0%,
+          #44272e 0,
+          transparent 42%
+        ),
+        linear-gradient(
+          180deg,
+          #19141b,
+          #100f14
+        );
     }
 
-    .card{
-      width:100%;
-      max-width:430px;
-      background:rgba(255,255,255,.88);
-      border:1px solid var(--line);
-      border-radius:30px;
-      padding:24px 18px 18px;
-      box-shadow:var(--shadow);
-      text-align:center;
-      backdrop-filter:blur(10px);
+    a {
+      color: inherit;
+      text-decoration: none;
+      -webkit-tap-highlight-color: transparent;
     }
 
-    .badge{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:8px 12px;
-      border-radius:999px;
-      background:#fff3e8;
-      border:1px solid #f3d7c7;
-      font-size:11px;
-      font-weight:900;
-      text-transform:uppercase;
-      letter-spacing:.06em;
-      color:#8d5a46;
-      margin-bottom:16px;
+    a:focus-visible {
+      outline: 3px solid var(--gold);
+      outline-offset: 4px;
     }
 
-    .logo{
-      width:76px;
-      height:76px;
-      margin:0 auto 16px;
-      border-radius:22px;
-      background:linear-gradient(180deg,#fff1e5,#ffe0cc);
-      border:1px solid #f1d6c6;
-      display:grid;
-      place-items:center;
-      font-size:34px;
-      box-shadow:0 10px 25px rgba(241,95,67,.15);
+    .panel {
+      width: 100%;
+      max-width: 420px;
+      padding: 26px 19px 21px;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: linear-gradient(
+        150deg,
+        #292029,
+        #1b181e
+      );
+      box-shadow: 0 24px 70px #0007;
+      text-align: center;
     }
 
-    h1{
-      font-size:34px;
-      line-height:1.02;
-      letter-spacing:-.05em;
-      margin-bottom:12px;
+    .brand {
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      color: var(--gold);
     }
 
-    h1 span{
-      color:var(--hot);
+    .icon {
+      display: grid;
+      place-items: center;
+      width: 76px;
+      height: 76px;
+      margin: 19px auto;
+      border-radius: 22px;
+      background: #3c292d;
+      border: 1px solid #624149;
+      font-size: 37px;
     }
 
-    p{
-      font-size:15px;
-      line-height:1.55;
-      color:var(--ink-soft);
-      max-width:320px;
-      margin:0 auto 22px;
+    h1 {
+      font-size: clamp(31px, 8vw, 41px);
+      line-height: 1.02;
+      letter-spacing: -.055em;
+      margin: 0 0 12px;
     }
 
-    .device-grid{
-      display:grid;
-      gap:12px;
+    h1 span {
+      color: var(--coral);
     }
 
-    .device-btn{
-      width:100%;
-      min-height:68px;
-      border:none;
-      border-radius:20px;
-      font-size:16px;
-      font-weight:900;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:12px;
-      cursor:pointer;
-      transition:transform .18s ease, box-shadow .18s ease, background-color .18s ease;
+    .sub {
+      max-width: 330px;
+      margin: 0 auto 23px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
     }
 
-    .device-btn:hover{transform:translateY(-2px)}
-    .device-btn:active{transform:translateY(1px)}
-
-    .ios{
-      background:linear-gradient(180deg,var(--coral),var(--hot));
-      color:#fff;
-      box-shadow:0 14px 26px rgba(241,95,67,.24);
+    .actions {
+      display: grid;
+      gap: 11px;
     }
 
-    .android{
-      background:#fff8f2;
-      color:var(--ink);
-      border:1px solid #ecd9cd;
-      box-shadow:0 10px 22px rgba(70,40,28,.06);
+    .choice {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      min-height: 66px;
+      padding: 13px;
+      border-radius: 18px;
+      border: 1px solid transparent;
+      font-size: 17px;
+      font-weight: 850;
+      transition: transform .15s ease;
     }
 
-    .icon{
-      width:34px;
-      height:34px;
-      border-radius:12px;
-      display:grid;
-      place-items:center;
-      background:rgba(255,255,255,.18);
-      font-size:18px;
-      flex:0 0 auto;
+    .choice:active {
+      transform: scale(.985);
     }
 
-    .android .icon{
-      background:#fff;
-      border:1px solid #f0ded3;
+    .ios {
+      background: var(--coral);
+      color: #211519;
+      box-shadow: 0 12px 27px #e8877024;
     }
 
-    .note{
-      margin-top:16px;
-      font-size:11px;
-      line-height:1.5;
-      color:#9b8a83;
+    .android {
+      background: var(--panel2);
+      border-color: #62464c;
+      color: var(--text);
+    }
+
+    .emoji {
+      font-size: 23px;
+    }
+
+    .fine {
+      margin: 17px 0 0;
+      color: #968992;
+      font-size: 11px;
+      line-height: 1.5;
     }
   </style>
 </head>
+
 <body>
-  <main class="card">
-    <div class="badge">🍣 sushi pass access</div>
+  <main class="panel">
 
-    <div class="logo">📱</div>
+    <div class="brand">🍣 SushiPass</div>
 
-    <h1>choose your <span>device</span></h1>
+    <div class="icon" aria-hidden="true">
+      📱
+    </div>
 
-    <p>
-      select your phone to continue and explore
-      sushi pass rewards.
+    <h1>
+      Choose your <span>device</span>
+    </h1>
+
+    <p class="sub">
+      Win money by scrolling.
+      Choose your phone to explore
+      available tasks and cash rewards.
     </p>
 
-    <div class="device-grid">
-      <button class="device-btn ios" type="button" data-device="ios">
-        <span class="icon"></span>
+    <div class="actions">
+
+      <a
+        class="choice ios"
+        href="/home/"
+        data-device="ios"
+      >
+        <span class="emoji" aria-hidden="true">📱</span>
         iPhone / iOS
-      </button>
+      </a>
 
-      <button class="device-btn android" type="button" data-device="android">
-        <span class="icon">🤖</span>
+      <a
+        class="choice android"
+        href="/home/"
+        data-device="android"
+      >
+        <span class="emoji" aria-hidden="true">🤖</span>
         Android
-      </button>
+      </a>
+
     </div>
 
-    <div class="note">
-      by continuing, you’ll be redirected to the next page.
-    </div>
+    <p class="fine">
+      Both options continue to the same page.
+      Rewards depend on offer requirements.
+    </p>
+
   </main>
 
   <script>
-    function goNext(device) {
-      const destination = new URL("/home/", window.location.origin);
-      const params = new URLSearchParams(window.location.search);
+    // Preserve incoming tracking parameters.
+    // Normal HTML links still work without JS.
 
-      if (device) {
-        params.set("device", device);
-      }
+    document.querySelectorAll(
+      '[data-device]'
+    ).forEach(function(link) {
 
-      destination.search = params.toString();
-      window.location.assign(destination.href);
-    }
+      const url = new URL(
+        '/home/',
+        window.location.origin
+      );
 
-    document.querySelectorAll("[data-device]").forEach((btn) => {
-      btn.addEventListener("click", function () {
-        goNext(this.dataset.device);
-      });
+      const params = new URLSearchParams(
+        window.location.search
+      );
+
+      params.set(
+        'device',
+        link.dataset.device
+      );
+
+      url.search = params.toString();
+      link.href = url.href;
+
     });
   </script>
 </body>
