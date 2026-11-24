@@ -3,10 +3,26 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  >
+
   <meta name="theme-color" content="#100f14">
-  <meta name="description" content="Win money by scrolling. Discover available tasks and rewards with SushiPass.">
+
+  <meta
+    name="description"
+    content="Win money by scrolling. Discover available tasks and rewards with SushiPass."
+  >
+
   <title>SushiPass — Win Money by Scrolling</title>
+
+  <link
+    rel="icon"
+    type="image/webp"
+    href="../offer-1793183086459-051ba69ff310.webp"
+  >
 
   <style>
     :root {
@@ -32,11 +48,27 @@
     body {
       margin: 0;
       min-height: 100vh;
+
       background:
-        radial-gradient(circle at 45% -5%, #44272e 0, transparent 25%),
-        linear-gradient(180deg, #17131a, #100f14 60%, #100f14);
+        radial-gradient(
+          circle at 45% -5%,
+          #44272e 0,
+          transparent 25%
+        ),
+        linear-gradient(
+          180deg,
+          #17131a,
+          #100f14 60%,
+          #100f14
+        );
+
       color: var(--text);
-      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+
+      font-family: system-ui,
+        -apple-system,
+        "Segoe UI",
+        sans-serif;
+
       -webkit-font-smoothing: antialiased;
     }
 
@@ -57,6 +89,8 @@
       padding: 14px 13px 114px;
     }
 
+    /* Header */
+
     .top {
       display: flex;
       align-items: center;
@@ -64,15 +98,26 @@
       margin: 0 0 13px;
     }
 
+    /* SushiPass logo */
+
     .logo {
-      display: grid;
-      place-items: center;
       width: 49px;
       height: 49px;
+      flex: 0 0 49px;
+
       border-radius: 15px;
-      background: #3b292e;
+      overflow: hidden;
+
+      background: #fff;
       border: 1px solid #60434c;
-      font-size: 23px;
+      box-shadow: 0 8px 20px #0004;
+    }
+
+    .logo img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .brand strong {
@@ -94,21 +139,33 @@
       font-size: 10px;
       font-weight: 900;
       color: var(--gold);
+
       border: 1px solid #75523f;
       background: #3c2928;
+
       padding: 7px 9px;
       border-radius: 30px;
       white-space: nowrap;
     }
 
+    /* Cards */
+
     .card {
-      background: linear-gradient(160deg, #292029, #1d1920);
+      background: linear-gradient(
+        160deg,
+        #292029,
+        #1d1920
+      );
+
       border: 1px solid var(--line);
       border-radius: 24px;
       box-shadow: 0 18px 40px #0004;
+
       margin-bottom: 12px;
       overflow: hidden;
     }
+
+    /* Hero */
 
     .hero {
       padding: 20px 17px 16px;
@@ -116,23 +173,27 @@
     }
 
     .hero:after {
-      content: '💸';
+      content: "💸";
       position: absolute;
       right: 16px;
       top: 18px;
       font-size: 32px;
       transform: rotate(12deg);
+      pointer-events: none;
     }
 
     .badge {
       display: inline-block;
       padding: 8px 11px;
       border-radius: 20px;
+
       background: #3c2c2c;
       border: 1px solid #624749;
+
       color: #f5c4a8;
       font-weight: 850;
       font-size: 11px;
+
       margin-bottom: 13px;
       max-width: 82%;
     }
@@ -153,15 +214,20 @@
       color: var(--muted);
       font-size: 14px;
       line-height: 1.52;
+
       margin: 0 0 13px;
       max-width: 355px;
     }
 
+    /* Reward box */
+
     .money {
       padding: 13px;
       border-radius: 17px;
+
       background: #302429;
       border: 1px solid #634850;
+
       margin-bottom: 13px;
     }
 
@@ -174,22 +240,30 @@
     }
 
     .money span {
+      display: block;
       font-size: 12px;
       line-height: 1.45;
       color: var(--muted);
     }
 
+    /* Quick info */
+
     .quick {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(
+        3,
+        minmax(0, 1fr)
+      );
       gap: 8px;
     }
 
     .quick div {
       text-align: center;
+
       background: #342830;
       border: 1px solid #4b3641;
       border-radius: 15px;
+
       padding: 11px 5px;
     }
 
@@ -205,11 +279,14 @@
       margin-top: 3px;
     }
 
+    /* Ways to win */
+
     .heading {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 10px;
+
       margin: 15px 2px 9px;
       font-size: 14px;
     }
@@ -231,6 +308,7 @@
       background: #251d25;
       border: 1px solid var(--line);
       border-radius: 18px;
+
       padding: 14px 12px;
       min-height: 103px;
     }
@@ -254,6 +332,8 @@
       margin-top: 5px;
       line-height: 1.3;
     }
+
+    /* How it works */
 
     .steps {
       padding: 15px;
@@ -279,8 +359,10 @@
     .num {
       display: grid;
       place-items: center;
+
       flex: 0 0 33px;
       height: 33px;
+
       border-radius: 10px;
       background: #423039;
       color: var(--gold);
@@ -299,6 +381,8 @@
       line-height: 1.45;
     }
 
+    /* Disclaimer */
+
     .fine {
       font-size: 11px;
       line-height: 1.5;
@@ -315,17 +399,30 @@
       margin-top: 15px;
     }
 
+    /* Sticky CTA */
+
     .sticky {
       position: fixed;
       left: 50%;
       transform: translateX(-50%);
-      bottom: max(10px, env(safe-area-inset-bottom));
-      width: min(430px, calc(100% - 22px));
+
+      bottom: max(
+        10px,
+        env(safe-area-inset-bottom)
+      );
+
+      width: min(
+        430px,
+        calc(100% - 22px)
+      );
+
       z-index: 20;
       padding: 7px;
+
       background: #171319e8;
       border: 1px solid #4b353d;
       border-radius: 23px;
+
       box-shadow: 0 15px 40px #0008;
       backdrop-filter: blur(12px);
     }
@@ -335,11 +432,15 @@
       align-items: center;
       justify-content: center;
       gap: 11px;
+
       min-height: 67px;
       padding: 12px 13px;
       border-radius: 17px;
+
       background: var(--coral);
       color: #26171b;
+
+      transition: transform .15s ease;
     }
 
     .main-btn:active {
@@ -350,6 +451,7 @@
       border: 1px solid #26171b33;
       border-radius: 12px;
       padding: 9px 7px;
+
       font-size: 15px;
       font-weight: 950;
     }
@@ -384,6 +486,16 @@
         font-size: 13px;
       }
     }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .main-btn {
+        transition: none;
+      }
+    }
   </style>
 </head>
 
@@ -391,16 +503,29 @@
 
   <main class="wrap">
 
+    <!-- HEADER -->
+
     <header class="top">
-      <div class="logo" aria-hidden="true">🍣</div>
+
+      <div class="logo">
+        <img
+          src="../offer-1793183086459-051ba69ff310.webp"
+          alt="SushiPass logo"
+        >
+      </div>
 
       <div class="brand">
         <strong>SushiPass</strong>
         <span>Win money by scrolling</span>
       </div>
 
-      <div class="mini">Explore offers</div>
+      <div class="mini">
+        Explore offers
+      </div>
+
     </header>
+
+    <!-- HERO -->
 
     <section class="card hero">
 
@@ -415,12 +540,15 @@
 
       <p>
         Scroll through short videos,
-        discover trending content and
-        explore money rewards from
-        simple online tasks.
+        discover trending content
+        and explore money rewards
+        from simple online tasks.
       </p>
 
+      <!-- MONEY BOX -->
+
       <div class="money">
+
         <strong>
           Start scrolling and explore money
           rewards directly from your phone.
@@ -431,11 +559,13 @@
           and unlock eligible cash rewards
           when offer requirements are met.
         </span>
+
       </div>
+
+      <!-- QUICK INFO -->
 
       <div class="quick">
 
-        <!-- Confirm the $10 bonus is offered before publishing. -->
         <div>
           <strong>$10</strong>
           <span>Start Bonus*</span>
@@ -455,93 +585,163 @@
 
     </section>
 
+    <!-- WAYS TO WIN MONEY -->
+
     <div class="heading">
-      <strong>Ways to win money</strong>
-      <span>Start scrolling</span>
+
+      <strong>
+        Ways to win money
+      </strong>
+
+      <span>
+        Start scrolling
+      </span>
+
     </div>
 
-    <section class="tasks" aria-label="Ways to win money">
+    <section
+      class="tasks"
+      aria-label="Ways to win money"
+    >
 
       <div class="task">
+
         <span class="emoji">📱</span>
-        <strong>Win by Scrolling</strong>
-        <span>Scroll short videos</span>
+
+        <strong>
+          Win by Scrolling
+        </strong>
+
+        <span>
+          Scroll short videos
+        </span>
+
       </div>
 
       <div class="task">
+
         <span class="emoji">🔥</span>
-        <strong>Short Video Feed</strong>
-        <span>Watch trending clips</span>
+
+        <strong>
+          Short Video Feed
+        </strong>
+
+        <span>
+          Watch trending clips
+        </span>
+
       </div>
 
       <div class="task">
+
         <span class="emoji">💸</span>
-        <strong>Cash Tasks</strong>
-        <span>Complete simple offers</span>
+
+        <strong>
+          Cash Tasks
+        </strong>
+
+        <span>
+          Complete simple offers
+        </span>
+
       </div>
 
       <div class="task">
+
         <span class="emoji">🤑</span>
-        <strong>Money Rewards</strong>
-        <span>Unlock eligible cash</span>
+
+        <strong>
+          Money Rewards
+        </strong>
+
+        <span>
+          Unlock eligible cash
+        </span>
+
       </div>
 
     </section>
 
+    <!-- HOW IT WORKS -->
+
     <section class="card steps">
 
-      <h2>How it works</h2>
+      <h2>
+        How it works
+      </h2>
 
       <div class="step">
+
         <span class="num">1</span>
+
         <div>
           <h3>Open SushiPass</h3>
+
           <p>
-            Tap the button and open the
-            available offer on your smartphone.
+            Tap the button and open
+            the available offer
+            on your smartphone.
           </p>
         </div>
+
       </div>
 
       <div class="step">
+
         <span class="num">2</span>
+
         <div>
           <h3>Create your free account</h3>
+
           <p>
             Sign up if eligible and
             discover available tasks.
           </p>
         </div>
+
       </div>
 
       <div class="step">
+
         <span class="num">3</span>
+
         <div>
           <h3>Scroll &amp; win money</h3>
+
           <p>
             Watch short video clips,
-            complete required tasks and
-            qualify for available cash rewards.
+            complete required tasks
+            and qualify for available
+            cash rewards.
           </p>
         </div>
+
       </div>
 
     </section>
 
+    <!-- DISCLAIMER -->
+
     <p class="fine">
-      *Start bonus, if available, is subject to
-      the offer's eligibility and completion
-      requirements. Check the offer's minimum
-      age before publishing. Rewards depend on
-      location and successfully completed tasks.
+      *The advertised $10 start bonus
+      applies only if offered to eligible
+      new users and may require completing
+      specific tasks. Verify the bonus
+      and minimum age with the offer provider
+      before publishing. Rewards vary by
+      location and completed activities.
       Scrolling alone does not guarantee payment.
     </p>
+
+    <!-- FOOTER -->
 
     <footer>
       © 2026 SushiPass · Promotional page
     </footer>
 
   </main>
+
+  <!-- STICKY AFFILIATE BUTTON -->
 
   <div class="sticky">
 
@@ -552,37 +752,65 @@
       target="_self"
     >
 
-      <span class="age">18+</span>
+      <span class="age">
+        18+
+      </span>
 
       <span class="btn-text">
-        <strong>Win money</strong>
+
+        <strong>
+          Win money
+        </strong>
+
         <small>
           Start scrolling &amp;
           unlock cash rewards
         </small>
+
       </span>
 
     </a>
 
   </div>
 
+  <!-- TRACKING PARAMETERS -->
+
   <script>
-    const cta = document.getElementById("mainCta");
+    const cta = document.getElementById(
+      "mainCta"
+    );
 
-    // Preserve tracking parameters from the
-    // prelander, including device and campaign IDs.
+    // Original affiliate link
 
-    const destination = new URL(cta.href);
+    const destination = new URL(
+      cta.href
+    );
+
+    // Read parameters from previous pages
 
     const incoming = new URLSearchParams(
       window.location.search
     );
 
+    // Append parameters without overwriting
+    // existing affiliate URL parameters
+
     incoming.forEach(function(value, key) {
+
       if (!destination.searchParams.has(key)) {
-        destination.searchParams.append(key, value);
+
+        destination.searchParams.append(
+          key,
+          value
+        );
+
       }
+
     });
+
+    // Keep navigation in the same tab.
+    // This is preferable for many
+    // mobile in-app browser flows.
 
     cta.href = destination.toString();
   </script>
